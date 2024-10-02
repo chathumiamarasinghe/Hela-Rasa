@@ -21,10 +21,7 @@ public class SettingActivity extends AppCompatActivity {
         binding = ActivitySettingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.linearLayoutShare.setOnClickListener(view -> shareApp());
-        binding.linearLayoutRate.setOnClickListener(view -> rateApp());
         binding.linearLayoutFeedback.setOnClickListener(view -> sendFeedback());
-        binding.linearLayoutApps.setOnClickListener(view -> moreApps());
-        binding.linearLayoutPrivacy.setOnClickListener(view -> privacyPolicy());
         binding.btnSignout.setOnClickListener(view -> signOut());
     }
 
@@ -45,12 +42,6 @@ public class SettingActivity extends AppCompatActivity {
                 }).show();
     }
 
-    private void privacyPolicy() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(android.net.Uri.parse("https://www.google.com"));
-        startActivity(intent);
-    }
-
     private void sendFeedback() {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
@@ -58,18 +49,6 @@ public class SettingActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback for " + getString(R.string.app_name));
         intent.putExtra(Intent.EXTRA_TEXT, "Hi " + getString(R.string.developer_name) + ",");
         startActivity(Intent.createChooser(intent, "Send Feedback"));
-    }
-
-    private void moreApps() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(android.net.Uri.parse("https://play.google.com/store/apps/developer?id=" + getString(R.string.developer_id)));
-        startActivity(intent);
-    }
-
-    private void rateApp() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(android.net.Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName()));
-        startActivity(intent);
     }
 
     private void shareApp() {
