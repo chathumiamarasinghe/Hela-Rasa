@@ -15,20 +15,20 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.example.lastlastrecipe.databinding.ActivitySingUpBinding;
+import com.example.lastlastrecipe.databinding.ActivitySignUpBinding;
 import com.example.lastlastrecipe.models.User;
 
 import java.util.Objects;
 
 
 public class SignUpActivity extends AppCompatActivity {
-    ActivitySingUpBinding binding;
+    ActivitySignUpBinding binding;
     ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySingUpBinding.inflate(getLayoutInflater());
+        binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnSignup.setOnClickListener(view -> signup());
         binding.tvLogin.setOnClickListener(view -> finish());
