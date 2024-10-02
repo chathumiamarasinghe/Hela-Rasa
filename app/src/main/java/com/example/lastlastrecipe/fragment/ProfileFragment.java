@@ -84,8 +84,7 @@ public class ProfileFragment extends Fragment {
 
     private void init() {
         binding.imgEditProfile.setOnClickListener(v -> {
-            // We will pick image from gallery and upload it to firebase storage
-            // I prefer to use a 3rd party library for picking images from gallery
+
             PickImageDialog.build(new PickSetup()).show(requireActivity()).setOnPickResult(r -> {
                 Log.e("ProfileFragment", "onPickResult: " + r.getUri());
                 binding.imgProfile.setImageBitmap(r.getBitmap());
@@ -147,8 +146,7 @@ public class ProfileFragment extends Fragment {
         }).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Uri downloadUri = task.getResult();
-                // We need to save this download url in firebase database
-                // So that we can load it in our app
+
                 Toast.makeText(requireContext(), "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
                 user.setImage(Objects.requireNonNull(downloadUri).toString());
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -215,13 +213,12 @@ public class ProfileFragment extends Fragment {
                 Log.e("ProfileFragment", "onCancelled: " + error.getMessage());
             }
         });
-        User user = new User(); // Load From Firebase here, we will learn it in next video
+        User user = new User();
         user.setName("chathumi");
         user.setEmail("chathumiamarasinghe@gmail.com.com");
         binding.tvUserName.setText(user.getName());
         binding.tvEmail.setText(user.getEmail());
-        // We will load images later, whenever we add firebase database
-        // Let's test our code, Before testing our code, let's add some data in RecyclerView
+
 
     }
 
