@@ -56,9 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
         // We will use the Firebase Auth class to create a new user
         // We will use the createUserWithEmailAndPassword() method to create a new user
         // This method takes two parameters, email and password
-
-        // Let's test our signup activity
-        // We need to enable the Email/Password sign-in method in the Firebase console
+ 
         // Our code works as expected
         // Need to show a progress dialog while creating a new user
 
