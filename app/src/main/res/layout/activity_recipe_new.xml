@@ -1,6 +1,5 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            />
+             />
 
         <!-- Play Button in the Center -->
         <ImageView
@@ -26,7 +25,6 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_centerInParent="true"
-
             android:contentDescription="Play Video"
             android:background="?android:attr/selectableItemBackground"
             android:layout_gravity="center" />
@@ -66,6 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+           android:background="@drawable/edittext_background"
             android:backgroundTint="@android:color/darker_gray"
             android:text="Ingredients"
             android:textColor="@android:color/white" />
@@ -76,12 +75,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:backgroundTint="@android:color/darker_gray"
             android:text="Procedure"
             android:textColor="@android:color/white" />
     </LinearLayout>
 
-    <!-- Serving Size and Ingredients/Steps Count -->
+    <!-- Serving Size and Steps Info -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,66 +97,81 @@
             android:text="1 serve"
             android:textColor="@android:color/darker_gray" />
 
-        <!-- Items or Steps Count -->
+        <!-- Steps Count -->
         <TextView
-            android:id="@+id/itemOrStepsCount"
+            android:id="@+id/stepsCount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="15 Items"
+            android:text="10 Steps"
             android:textColor="@android:color/darker_gray"
             android:gravity="end" />
     </LinearLayout>
 
-    <!-- View Container for Ingredients or Procedure -->
-    <FrameLayout
-        android:id="@+id/viewContainer"
+    <!-- Procedure Steps -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="16dp">
 
-        <!-- Ingredients Layout (Initially Visible) -->
-        <LinearLayout
-            android:id="@+id/ingredientsLayout"
+        <!-- Step 1 -->
+        <TextView
+            android:id="@+id/step1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible">
+            android:text="Step 1"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
 
-            <TextView
-                android:id="@+id/ingredient1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Coconut Oil - 5 tbsp"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="4dp" />
-
-            <!-- Add other ingredients here similarly -->
-
-        </LinearLayout>
-
-        <!-- Procedure Layout (Initially Hidden) -->
-        <LinearLayout
-            android:id="@+id/procedureLayout"
+        <TextView
+            android:id="@+id/step1Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla consequat aliquet id quis turpis."
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
 
-            <TextView
-                android:id="@+id/step1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Step 1: Lorem ipsum dolor sit amet"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="4dp" />
+        <!-- Step 2 -->
+        <TextView
+            android:id="@+id/step2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 2"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="16dp" />
 
-            <!-- Add other steps here similarly -->
+        <TextView
+            android:id="@+id/step2Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla consequat aliquet id quis turpis."
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
 
-        </LinearLayout>
+        <!-- Step 3 -->
+        <TextView
+            android:id="@+id/step3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 3"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="16dp" />
 
-    </FrameLayout>
-
+        <TextView
+            android:id="@+id/step3Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a metus ac nulla consequat aliquet id quis turpis."
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
 </LinearLayout>
