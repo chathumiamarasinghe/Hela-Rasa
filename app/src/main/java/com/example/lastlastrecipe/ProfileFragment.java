@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.fragment;
+package com.example.lastlastrecipe;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -15,13 +15,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,12 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.example.lastlastrecipe.R;
-import com.example.lastlastrecipe.SettingActivity;
-import com.example.lastlastrecipe.adapters.RecipeAdapter;
 import com.example.lastlastrecipe.databinding.FragmentProfileBinding;
-import com.example.lastlastrecipe.models.Recipe;
-import com.example.lastlastrecipe.models.User;
 import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 //import com.vansuita.pickimage.bean.PickResult;
@@ -194,7 +185,7 @@ public class ProfileFragment extends Fragment {
                             .with(requireContext())
                             .load(user.getImage())
                             .centerCrop()
-                            .placeholder(R.mipmap.ic_launcher)
+                            .placeholder(R.drawable.ic_profile)
                             .into(binding.imgProfile);
 
                     Glide

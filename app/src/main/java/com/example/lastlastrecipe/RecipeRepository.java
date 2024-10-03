@@ -1,8 +1,7 @@
-package com.example.lastlastrecipe.room;
+package com.example.lastlastrecipe;
 
 import android.app.Application;
 
-import com.example.lastlastrecipe.models.FavouriteRecipe;
 import java.util.Collections;
 
 import java.util.List;

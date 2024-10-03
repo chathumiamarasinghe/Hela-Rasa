@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.models;
+package com.example.lastlastrecipe;
 
 import java.io.Serializable;
 
