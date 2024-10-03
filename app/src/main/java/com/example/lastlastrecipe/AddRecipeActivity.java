@@ -26,8 +26,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.example.lastlastrecipe.databinding.ActivityAddRecipeBinding;
-import com.example.lastlastrecipe.models.Category;
-import com.example.lastlastrecipe.models.Recipe;
 import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 
