@@ -15,7 +15,9 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.example.lastlastrecipe.databinding.ActivitySingUpBinding;
+import com.example.lastlastrecipe.databinding.ActivitySignupBinding;
+
+
 import com.example.lastlastrecipe.models.User;
 
 import java.util.Objects;
@@ -23,6 +25,7 @@ import java.util.Objects;
 
 public class SignUpActivity extends AppCompatActivity {
     ActivitySingUpBinding binding;
+
     ProgressDialog dialog;
 
     @Override

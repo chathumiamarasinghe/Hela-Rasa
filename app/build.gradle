@@ -53,6 +53,10 @@ dependencies {
     implementation 'com.github.jrvansuita:PickImage:+' // 2.4.0
     implementation 'com.github.jrvansuita:pickimage:3.0.2'
 
+
+    implementation 'com.google.android.gms:play-services-auth:20.4.0'
+
+
     implementation 'androidx.room:room-runtime:2.5.1'
     implementation libs.navigation.runtime
     implementation libs.navigation.ui
