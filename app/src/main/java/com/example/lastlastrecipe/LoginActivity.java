@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(view -> login());
         binding.tvGuest.setOnClickListener(view -> startActivity(new Intent(this, MainActivity.class)));
         binding.tvSignup.setOnClickListener(view -> startActivity(new Intent(this, SignUpActivity.class)));
+        binding.forgotpassword.setOnClickListener(view -> startActivity(new Intent(this, ForgotPasswordActivity.class)));
 
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(this, MainActivity.class));
