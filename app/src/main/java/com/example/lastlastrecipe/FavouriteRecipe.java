@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.models;
+package com.example.lastlastrecipe;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

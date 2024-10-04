@@ -18,7 +18,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="@string/share_your_nmasterpiece_with_the_world"
-            android:textColor="@color/black"
+            android:textColor="@color/brown"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,8 +38,11 @@
                 android:id="@+id/et_recipe_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:hint="Recipe Name"
-                android:textColor="#492C09"/>
+                android:textColorHint="@color/brown"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,7 +63,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Cooking Time"
-                android:textColor="#492C09"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/edittext_background"
+                android:textColorHint="@color/brown"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -78,8 +84,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Calories"
+                android:background="@drawable/edittext_background"
                 android:id="@+id/et_calories"
-                android:textColor="#492C09"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColorHint="@color/brown"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -101,7 +110,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Category"
-                android:textColor="#492C09"
+                android:background="@drawable/edittext_background"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColorHint="@color/brown"
                 android:inputType="none"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,30 +135,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Description"
-                android:textColor="#492C09"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/edittext_background"
+                android:textColorHint="@color/brown"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
             android:id="@+id/img_recipe"
-            android:layout_width="0dp"
-            android:layout_height="220dp"
+            android:layout_width="176dp"
+            android:layout_height="107dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/img"
+            android:src="@drawable/img_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_add_recipe"
-            android:layout_width="0dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="16dp"
             android:text="Add Recipe"
-            android:backgroundTint="#492C09"
+            android:background="@drawable/button_background"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_recipe" />

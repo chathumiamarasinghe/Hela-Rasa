@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".fragment.HomeFragment">
+    tools:context=".HomeFragment">
 
     <TextView
         android:id="@+id/tv_title"
@@ -39,6 +39,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/search_your_favourite_recipe"
             android:imeOptions="actionSearch"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edittext_background"
             android:inputType="text"
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/ic_search"

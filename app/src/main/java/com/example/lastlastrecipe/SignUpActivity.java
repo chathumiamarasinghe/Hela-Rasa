@@ -15,23 +15,19 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.example.lastlastrecipe.databinding.ActivitySignupBinding;
-
-
-import com.example.lastlastrecipe.models.User;
+import com.example.lastlastrecipe.databinding.ActivitySignUpBinding;
 
 import java.util.Objects;
 
 
 public class SignUpActivity extends AppCompatActivity {
-    ActivitySingUpBinding binding;
-
+    ActivitySignUpBinding binding;
     ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySingUpBinding.inflate(getLayoutInflater());
+        binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnSignup.setOnClickListener(view -> signup());
         binding.tvLogin.setOnClickListener(view -> finish());
@@ -59,7 +55,9 @@ public class SignUpActivity extends AppCompatActivity {
         // We will use the Firebase Auth class to create a new user
         // We will use the createUserWithEmailAndPassword() method to create a new user
         // This method takes two parameters, email and password
- 
+
+        // Let's test our signup activity
+        // We need to enable the Email/Password sign-in method in the Firebase console
         // Our code works as expected
         // Need to show a progress dialog while creating a new user
 

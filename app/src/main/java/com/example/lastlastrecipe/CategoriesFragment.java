@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.fragment;
+package com.example.lastlastrecipe;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,9 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.example.lastlastrecipe.adapters.CategoryAdapter;
 import com.example.lastlastrecipe.databinding.FragmentCategoryBinding;
-import com.example.lastlastrecipe.models.Category;
 
 import java.util.ArrayList;
 import java.util.List;

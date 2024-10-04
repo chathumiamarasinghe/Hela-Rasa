@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.adapters;
+package com.example.lastlastrecipe;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,10 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.lastlastrecipe.AllRecipesActivity;
-import com.example.lastlastrecipe.R;
 import com.example.lastlastrecipe.databinding.ItemCategoryBinding;
-import com.example.lastlastrecipe.models.Category;
 
 import java.util.ArrayList;
 import java.util.List;

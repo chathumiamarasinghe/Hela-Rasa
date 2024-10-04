@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.fragment;
+package com.example.lastlastrecipe;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -15,13 +15,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,12 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.example.lastlastrecipe.R;
-import com.example.lastlastrecipe.SettingActivity;
-import com.example.lastlastrecipe.adapters.RecipeAdapter;
 import com.example.lastlastrecipe.databinding.FragmentProfileBinding;
-import com.example.lastlastrecipe.models.Recipe;
-import com.example.lastlastrecipe.models.User;
 import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 //import com.vansuita.pickimage.bean.PickResult;
@@ -84,8 +75,7 @@ public class ProfileFragment extends Fragment {
 
     private void init() {
         binding.imgEditProfile.setOnClickListener(v -> {
-            // We will pick image from gallery and upload it to firebase storage
-            // I prefer to use a 3rd party library for picking images from gallery
+
             PickImageDialog.build(new PickSetup()).show(requireActivity()).setOnPickResult(r -> {
                 Log.e("ProfileFragment", "onPickResult: " + r.getUri());
                 binding.imgProfile.setImageBitmap(r.getBitmap());
@@ -147,8 +137,7 @@ public class ProfileFragment extends Fragment {
         }).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Uri downloadUri = task.getResult();
-                // We need to save this download url in firebase database
-                // So that we can load it in our app
+
                 Toast.makeText(requireContext(), "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
                 user.setImage(Objects.requireNonNull(downloadUri).toString());
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -196,7 +185,7 @@ public class ProfileFragment extends Fragment {
                             .with(requireContext())
                             .load(user.getImage())
                             .centerCrop()
-                            .placeholder(R.mipmap.ic_launcher)
+                            .placeholder(R.drawable.ic_profile)
                             .into(binding.imgProfile);
 
                     Glide
@@ -215,13 +204,12 @@ public class ProfileFragment extends Fragment {
                 Log.e("ProfileFragment", "onCancelled: " + error.getMessage());
             }
         });
-        User user = new User(); // Load From Firebase here, we will learn it in next video
+        User user = new User();
         user.setName("chathumi");
         user.setEmail("chathumiamarasinghe@gmail.com.com");
         binding.tvUserName.setText(user.getName());
         binding.tvEmail.setText(user.getEmail());
-        // We will load images later, whenever we add firebase database
-        // Let's test our code, Before testing our code, let's add some data in RecyclerView
+
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.models;
+package com.example.lastlastrecipe;
 
 public class User {
     private String id, name, email, image, cover;

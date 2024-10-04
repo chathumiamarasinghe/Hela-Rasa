@@ -1,9 +1,8 @@
-package com.example.lastlastrecipe.fragment;
+package com.example.lastlastrecipe;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -18,12 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.example.lastlastrecipe.R;
-import com.example.lastlastrecipe.adapters.RecipeAdapter;
 import com.example.lastlastrecipe.databinding.FragmentFavouritesBinding;
-import com.example.lastlastrecipe.models.FavouriteRecipe;
-import com.example.lastlastrecipe.models.Recipe;
-import com.example.lastlastrecipe.room.RecipeRepository;
 
 import java.util.ArrayList;
 import java.util.List;
