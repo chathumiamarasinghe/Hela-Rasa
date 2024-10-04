@@ -19,8 +19,8 @@ public class RecipeNew extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize views
-        ingredientsLayout = findViewById(R.id.ingredientsLayout);
-        procedureLayout = findViewById(R.id.procedureLayout);
+        ingredientsLayout = findViewById(R.id.linearLayout);
+        procedureLayout = findViewById(R.id.deltaRelative);
         btnIngredients = findViewById(R.id.btnIngredients);
         btnProcedure = findViewById(R.id.btnProcedure);
 
