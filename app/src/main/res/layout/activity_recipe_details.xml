@@ -125,9 +125,9 @@
 
     <ImageView
         android:id="@+id/RateResipe"
-        android:layout_width="44dp"
-        android:layout_height="37dp"
-        android:src="@drawable/emoji_4"
+        android:layout_width="57dp"
+        android:layout_height="51dp"
+        android:src="@drawable/rate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"

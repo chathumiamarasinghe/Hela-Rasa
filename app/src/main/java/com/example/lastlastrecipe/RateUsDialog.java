@@ -51,7 +51,7 @@ public class RateUsDialog extends Dialog {
             }
         });
 
-        
+
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
