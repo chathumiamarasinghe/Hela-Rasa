@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Initialize Firebase
+
         FirebaseApp.initializeApp(this);
         auth = FirebaseAuth.getInstance();
 
@@ -67,25 +67,23 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(LoginActivity.this, "Facebook Sign-In successful", Toast.LENGTH_SHORT).show();
                 handleFacebookAccessToken(loginResult.getAccessToken());
-                // Handle success
+
             }
 
             @Override
             public void onCancel() {
                 Toast.makeText(LoginActivity.this, "Facebook Sign-In cancelled", Toast.LENGTH_SHORT).show();
-                // Handle cancel
+
             }
 
             @Override
             public void onError(FacebookException exception) {
                 Toast.makeText(LoginActivity.this, "Facebook Sign-In failed: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
-                // Handle error
+
             }
         });
 
 
-
-        // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))  // Ensure correct Web Client ID
                 .requestEmail()
@@ -93,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        // Set button listeners
+
         binding.btnLogin.setOnClickListener(view -> login());
         binding.tvGuest.setOnClickListener(view -> startActivity(new Intent(this, MainActivity.class)));
         binding.tvSignup.setOnClickListener(view -> startActivity(new Intent(this, SignUpActivity.class)));

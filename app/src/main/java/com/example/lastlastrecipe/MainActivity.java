@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AddRecipeActivity.class));
 
         });
-       // show rating dialog
-
 
     }
 }

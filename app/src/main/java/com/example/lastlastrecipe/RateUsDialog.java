@@ -24,11 +24,11 @@ import com.google.firebase.database.ValueEventListener;
 public class RateUsDialog extends Dialog {
 
     private float userRate = 0;
-    private String recipeId; // Recipe ID to store the rating for
+    private String recipeId;
 
     public RateUsDialog(@NonNull Context context, String recipeId) {
         super(context);
-        this.recipeId = recipeId; // Store the recipe ID
+        this.recipeId = recipeId;
     }
 
     @Override
@@ -44,8 +44,8 @@ public class RateUsDialog extends Dialog {
         rateNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitRating(userRate); // Submit the rating
-                dismiss(); // Hide the rating dialog
+                submitRating(userRate);
+                dismiss();
             }
         });
 
@@ -53,7 +53,6 @@ public class RateUsDialog extends Dialog {
             @Override
             public void onClick(View view) {
                 dismiss();
-                 // Just dismiss the dialog
             }
         });
 
@@ -74,10 +73,8 @@ public class RateUsDialog extends Dialog {
                     ratingImage.setImageResource(R.drawable.emoji_4);
                 }
 
-                // Animate emoji
                 animateImage(ratingImage);
 
-                // Selected rating by user
                 userRate = rating;
             }
         });
@@ -91,15 +88,15 @@ public class RateUsDialog extends Dialog {
     }
 
     private void submitRating(float rating) {
-        // Assuming you have Firebase Auth set up and can get the current user's ID
+
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        // Here, store the rating in Firebase under the user ID
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RecipeRatings")
-                .child(recipeId) // Recipe ID
-                .child(userId); // User ID
 
-        reference.setValue(rating) // Set the rating for this user ID
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RecipeRatings")
+                .child(recipeId)
+                .child(userId);
+
+        reference.setValue(rating)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
 
@@ -124,20 +121,15 @@ public class RateUsDialog extends Dialog {
 
                 if (count > 0) {
                     float average = total / count;
-                    // Optionally display the average rating to the user
+
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle possible errors
+
             }
         });
     }
-
-
-
-
-
 
 }

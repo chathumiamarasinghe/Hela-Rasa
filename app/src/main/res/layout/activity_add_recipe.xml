@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:text="@string/share_your_nmasterpiece_with_the_world"
+            android:text="Add Your Recipe Ideas"
             android:textColor="@color/brown"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"

@@ -25,7 +25,6 @@
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
 
-        <!-- Your activities -->
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
@@ -67,10 +66,6 @@
             android:label="@string/app_name"
             tools:replace="android:configChanges" />
 
-
-
-
-        <!-- Image picker provider -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -96,8 +91,6 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
-        <!-- Facebook SDK Meta-Data -->
 
 
     </application>

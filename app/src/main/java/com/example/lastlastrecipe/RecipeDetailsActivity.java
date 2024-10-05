@@ -57,7 +57,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         Rateresipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Pass the recipe ID to the dialog
+
                 Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");
                 RateUsDialog rateUsDialog = new RateUsDialog(RecipeDetailsActivity.this, recipe.getId());
                 rateUsDialog.show();
@@ -82,7 +82,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Float rating = snapshot.getValue(Float.class);
-                    if (rating != null) { // Check if rating is not null
+                    if (rating != null) {
                         total += rating;
                         count++;
                     }
@@ -91,15 +91,15 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
                 if (count > 0) {
                     float average = total / count;
-                    tv_average_rating.setText(String.format("Average Rating: %.1f", average)); // Update the TextView with the average rating
+                    tv_average_rating.setText(String.format("Average Rating: %.1f", average));
                 } else {
-                    tv_average_rating.setText("Average Rating: 0.0"); // No ratings yet
+                    tv_average_rating.setText("Average Rating: 0.0");
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle possible errors
+
             }
         });
     }
@@ -217,7 +217,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .asBitmap()
-                .load(recipe.getImage()) // Load the image URL
+                .load(recipe.getImage())
                 .into(new CustomTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
