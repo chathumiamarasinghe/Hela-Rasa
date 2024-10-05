@@ -10,11 +10,11 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:textSize="22sp"
-        android:textColor="@color/brown"
         android:text="Discover new flavors\nand elevate your cooking game"
+        android:textColor="@color/brown"
+        android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

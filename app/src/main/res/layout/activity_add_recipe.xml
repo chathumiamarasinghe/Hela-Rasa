@@ -15,8 +15,8 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
             android:text="@string/share_your_nmasterpiece_with_the_world"
             android:textColor="@color/brown"
             android:textSize="24sp"
@@ -146,10 +146,11 @@
             android:layout_width="176dp"
             android:layout_height="107dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/img_3"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
