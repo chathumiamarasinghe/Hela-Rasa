@@ -108,8 +108,35 @@ public class RateUsDialog extends Dialog {
                     }
                 });
     }
+    private void calculateAverageRating(String recipeId) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RecipeRatings").child(recipeId);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int count = 0;
+                float total = 0;
 
-    
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    float rating = snapshot.getValue(Float.class);
+                    total += rating;
+                    count++;
+                }
+
+                if (count > 0) {
+                    float average = total / count;
+                    // Optionally display the average rating to the user
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+            }
+        });
+    }
+
+
+
 
 
 
