@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.CategoriesFragment">
+    tools:context=".CategoriesFragment">
 
     <TextView
         android:id="@+id/tv_title"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/take_your_taste_buds_non_a_flavor_journey_with_us"
+        android:text="Explore easy, medium, and hard recipes, tailored to your prep time"
         android:textColor="@color/brown"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

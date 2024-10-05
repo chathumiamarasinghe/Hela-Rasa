@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FavouritesFragment">
+    tools:context=".FavouritesFragment">
 
     <TextView
         android:id="@+id/textView2"
@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/satisfy_your_ncravings_with_just_a_tap"
+        android:text="Curate your favorites from our delicious recipe collection!"
         android:textColor="@color/brown"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         android:id="@+id/noFavourites"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/empty"
+        android:src="@drawable/img_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

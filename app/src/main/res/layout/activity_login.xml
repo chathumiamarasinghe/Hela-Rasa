@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -18,6 +31,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGoogleSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Sign in with Google"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_email_container"
@@ -59,10 +85,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
+            android:background="@drawable/edittext_background"
             android:hint="@string/password"
-            android:textColor="@color/brown"
             android:inputType="textPassword"
-            android:background="@drawable/edittext_background"/>
+            android:textColor="@color/brown" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -147,13 +173,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="36dp"
         android:text="@string/login_as_guest"
         android:textColor="@color/brown"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.008"
         app:layout_constraintStart_toStartOf="@+id/et_password_container"
         app:layout_constraintTop_toBottomOf="@+id/et_password_container" />
+
+    <TextView
+        android:id="@+id/forgotpassword"
+        android:layout_width="160dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="304dp"
+        android:text="Forgot Password"
+        android:textColor="@color/brown"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toEndOf="@+id/tv_guest"
+        app:layout_constraintTop_toBottomOf="@+id/et_password_container"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

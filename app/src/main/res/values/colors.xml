@@ -10,4 +10,9 @@
     <color name="greyLight">#FFEEEEEE</color>
     <color name="light_brown">#C4A484</color>
 
+    <color name="dialog_color_1">#FDD736</color>
+    <color name="dialog_color_2">#385796</color>
+
+
 </resources>
+

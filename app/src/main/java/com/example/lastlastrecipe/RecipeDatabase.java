@@ -1,12 +1,10 @@
-package com.example.lastlastrecipe.room;
+package com.example.lastlastrecipe;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-
-import com.example.lastlastrecipe.models.FavouriteRecipe;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.fragment;
+package com.example.lastlastrecipe;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -10,20 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.bumptech.glide.Glide;
-import com.example.lastlastrecipe.edit_profile;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,12 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.example.lastlastrecipe.R;
-import com.example.lastlastrecipe.SettingActivity;
-import com.example.lastlastrecipe.adapters.RecipeAdapter;
 import com.example.lastlastrecipe.databinding.FragmentProfileBinding;
-import com.example.lastlastrecipe.models.Recipe;
-import com.example.lastlastrecipe.models.User;
 import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 //import com.vansuita.pickimage.bean.PickResult;
@@ -57,7 +46,6 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private User user;
-    private TextView tvUserName;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,7 +74,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void init() {
-        binding.imgProfile.setOnClickListener(v -> {
+        binding.imgEditProfile.setOnClickListener(v -> {
 
             PickImageDialog.build(new PickSetup()).show(requireActivity()).setOnPickResult(r -> {
                 Log.e("ProfileFragment", "onPickResult: " + r.getUri());
@@ -197,7 +185,7 @@ public class ProfileFragment extends Fragment {
                             .with(requireContext())
                             .load(user.getImage())
                             .centerCrop()
-                            .placeholder(R.mipmap.ic_launcher)
+                            .placeholder(R.drawable.ic_profile)
                             .into(binding.imgProfile);
 
                     Glide
@@ -224,32 +212,6 @@ public class ProfileFragment extends Fragment {
 
 
     }
-    public void changeDetails(View view){
-        String userName = binding.tvUserName.getText().toString();
-
-        // Create an intent to navigate to EditProfileActivity
-        Intent intent = new Intent(getActivity(), edit_profile.class);
-
-        // Pass the user name as an extra
-        intent.putExtra("USER_NAME", userName);
-
-        // Start EditProfileActivity
-        startActivity(intent);
-    }
-
-    /*public void changeDetails(View view){
-        tvUserName = view.findViewById(R.id.tv_user_name);
-        String userName = tvUserName.getText().toString();
-
-        // Create an intent to navigate to EditProfileActivity
-        Intent intent = new Intent(getActivity(), edit_profile.class);
-
-        // Pass the user name as an extra
-        intent.putExtra("USER_NAME", userName);
-
-        // Start EditProfileActivity
-        startActivity(intent);
-    }*/
 
     @Override
     public void onDestroyView() {

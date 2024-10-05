@@ -12,12 +12,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.example.lastlastrecipe.adapters.RecipeAdapter;
 import com.example.lastlastrecipe.databinding.ActivityAllRecipesBinding;
-import com.example.lastlastrecipe.models.Recipe;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -50,7 +47,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     }
 
     private void loadByRecipes() {
-        // Search Recipes by Name
+
         String query = getIntent().getStringExtra("query");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -75,7 +72,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     }
 
     private void loadAllRecipes() {
-        // Load All Recipes
+
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,7 +96,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     }
 
     private void filterByCategory() {
-        // Filter Recipes by Category
+
         String category = getIntent().getStringExtra("category");
         reference.orderByChild("category").equalTo(category).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

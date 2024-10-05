@@ -26,8 +26,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.example.lastlastrecipe.databinding.ActivityAddRecipeBinding;
-import com.example.lastlastrecipe.models.Category;
-import com.example.lastlastrecipe.models.Recipe;
 import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
 
@@ -49,18 +47,18 @@ public class AddRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddRecipeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        // 9. Load the categories from the firebase database.
+
         loadCategories();
         binding.btnAddRecipe.setOnClickListener(view -> {
-            // 1. We will get Data from the user and validate it.
+
             getData();
         });
         binding.imgRecipe.setOnClickListener(view -> {
-            // 4. We will pick the image from the gallery.
+
             pickImage();
         });
 
-        // For Edit Purpose
+
         isEdit = getIntent().getBooleanExtra("isEdit", false);
         if (isEdit) {
             editRecipe();
@@ -88,7 +86,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 
     private void loadCategories() {
         List<String> categories = new ArrayList<>();
-        // Instead of writing code, we use CHat GPT to generate code.
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categories);
         binding.etCategory.setAdapter(adapter);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Categories");
@@ -111,7 +109,7 @@ public class AddRecipeActivity extends AppCompatActivity {
     }
 
     private void pickImage() {
-        // Instead of writing the code for picking image from the gallery, we will use a library. and copy from other activity.
+
         PickImageDialog.build(new PickSetup()).show(AddRecipeActivity.this).setOnPickResult(r -> {
             Log.e("ProfileFragment", "onPickResult: " + r.getUri());
             binding.imgRecipe.setImageBitmap(r.getBitmap());
@@ -121,14 +119,14 @@ public class AddRecipeActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        // Fetch All the data from the user in variables.
+
         String recipeName = Objects.requireNonNull(binding.etRecipeName.getText()).toString();
         String recipeDescription = Objects.requireNonNull(binding.etDescription.getText()).toString();
         String cookingTime = Objects.requireNonNull(binding.etCookingTime.getText()).toString();
         String recipeCategory = binding.etCategory.getText().toString();
         String calories = Objects.requireNonNull(binding.etCalories.getText()).toString();
 
-        // 2. We will validate the data.
+
         if (recipeName.isEmpty()) {
             binding.etRecipeName.setError("Please enter Recipe Name");
         } else if (recipeDescription.isEmpty()) {
@@ -142,15 +140,13 @@ public class AddRecipeActivity extends AppCompatActivity {
         } else if (!isImageSelected) {
             Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show();
         } else {
-            // 3. We will create a Recipe Object.
-            // ID will be auto generated.
+
             dialog = new ProgressDialog(this);
             dialog.setMessage("Uploading Recipe...");
             dialog.setCancelable(false);
             dialog.show();
             Recipe recipe = new Recipe(recipeName, recipeDescription, cookingTime, recipeCategory, calories, "", FirebaseAuth.getInstance().getUid());
-            // We also need to pick image and make sure it is not null.
-            // 5. We will upload the image to the firebase storage.
+
             uploadImage(recipe);
         }
 
@@ -159,7 +155,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 
     private String uploadImage(Recipe recipe) {
         final String[] url = {""};
-        // We will upload the image to the firebase storage.
+
         binding.imgRecipe.setDrawingCacheEnabled(true);
         Bitmap bitmap = ((BitmapDrawable) binding.imgRecipe.getDrawable()).getBitmap();
         binding.imgRecipe.setDrawingCacheEnabled(false);
@@ -178,8 +174,7 @@ public class AddRecipeActivity extends AppCompatActivity {
         }).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Uri downloadUri = task.getResult();
-                // We need to save this download url in firebase database
-                // So that we can load it in our app
+
                 url[0] = downloadUri.toString();
                 Toast.makeText(AddRecipeActivity.this, "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
                 saveDataInDataBase(recipe, url[0]);
@@ -194,7 +189,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 
     private void saveDataInDataBase(Recipe recipe, String url) {
         recipe.setImage(url);
-        // 6. We will save the recipe object in the firebase database.
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Recipes");
         if (isEdit) {
             recipe.setId(recipeId);

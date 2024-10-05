@@ -1,6 +1,8 @@
 package com.example.lastlastrecipe;
 
 import android.content.Intent;
+import android.graphics.drawable.ClipDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -10,6 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.lastlastrecipe.room.RateUsDialog;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.example.lastlastrecipe.databinding.ActivityMainBinding;
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please login to add recipe", Toast.LENGTH_SHORT).show();
             else
                 startActivity(new Intent(MainActivity.this, AddRecipeActivity.class));
+
         });
+       // show rating dialog
+
+
     }
 }

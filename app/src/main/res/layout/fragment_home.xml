@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".fragment.HomeFragment">
+    tools:context=".HomeFragment">
 
     <TextView
         android:id="@+id/tv_title"
@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/cook_like_a_pro_with_nour_expertly_crafted_recipes"
+        android:text="Master the art of cooking with expertly crafted recipes from Nour!"
         android:textColor="@color/brown"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/your_favorites_meal_here"
+        android:text="Your favorites meal here"
         android:textColor="@color/brown"
         android:textSize="18sp"
         android:textStyle="bold"

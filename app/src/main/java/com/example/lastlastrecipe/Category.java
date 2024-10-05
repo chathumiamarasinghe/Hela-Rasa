@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.models;
+package com.example.lastlastrecipe;
 
 public class Category {
     private String id, name, image;

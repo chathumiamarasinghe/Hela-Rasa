@@ -1,6 +1,5 @@
-package com.example.lastlastrecipe.adapters;
+package com.example.lastlastrecipe;
 
-import static com.example.lastlastrecipe.databinding.ItemRecipeBinding.*;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,31 +9,28 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.lastlastrecipe.R;
-import com.example.lastlastrecipe.RecipeDetailsActivity;
-import com.example.lastlastrecipe.databinding.ItemRecipeBinding;
-import com.example.lastlastrecipe.models.Recipe;
+import com.example.lastlastrecipe.databinding.ItemRecipeHorizontalBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHolder> {
+public class HorizontalRecipeAdapter extends RecyclerView.Adapter<HorizontalRecipeAdapter.RecipeHolder> {
     List<Recipe> recipeList = new ArrayList<>();
 
     public void setRecipeList(List<Recipe> recipeList) {
+        this.recipeList.clear();
         this.recipeList = recipeList;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public RecipeAdapter.RecipeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new RecipeHolder(inflate(LayoutInflater.from(parent.getContext()), parent, false));
+    public HorizontalRecipeAdapter.RecipeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new RecipeHolder(ItemRecipeHorizontalBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipeAdapter.RecipeHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HorizontalRecipeAdapter.RecipeHolder holder, int position) {
         Recipe recipe = recipeList.get(position);
         holder.onBind(recipe);
     }
@@ -45,8 +41,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
     }
 
     public static class RecipeHolder extends RecyclerView.ViewHolder {
-        ItemRecipeBinding binding;
-        public RecipeHolder(@NonNull ItemRecipeBinding itemView) {
+        ItemRecipeHorizontalBinding binding;
+        public RecipeHolder(@NonNull ItemRecipeHorizontalBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
         }
@@ -68,3 +64,4 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
         }
     }
 }
+

@@ -30,48 +30,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="10dp">
-
-            <LinearLayout
-                android:id="@+id/linearLayoutShare"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/selector_effect"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/brown" />
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:padding="9dp"
-                    android:src="@drawable/ic_share"
-                    app:tint="@color/brown" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/share_app"
-                    android:textColor="@color/brown"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

@@ -1,14 +1,12 @@
-package com.example.lastlastrecipe.fragment;
+package com.example.lastlastrecipe;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,12 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.example.lastlastrecipe.AllRecipesActivity;
-import com.example.lastlastrecipe.R;
-import com.example.lastlastrecipe.SettingActivity;
-import com.example.lastlastrecipe.adapters.HorizontalRecipeAdapter;
 import com.example.lastlastrecipe.databinding.FragmentHomeBinding;
-import com.example.lastlastrecipe.models.Recipe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +74,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadRecipes() {
-        // We will load recipes from our database
+
         binding.rvPopulars.setAdapter(new HorizontalRecipeAdapter());
         binding.rvFavouriteMeal.setAdapter(new HorizontalRecipeAdapter());
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Recipes");

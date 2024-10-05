@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.example.lastlastrecipe.databinding.ActivitySignUpBinding;
-import com.example.lastlastrecipe.models.User;
 
 import java.util.Objects;
 
@@ -45,22 +44,12 @@ public class SignUpActivity extends AppCompatActivity {
         } else if (password.length() < 6) {
             Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
         } else {
-            // let's create a new user in the Firebase
+
             createNewUser(name, email, password);
         }
     }
 
     private void createNewUser(String name, String email, String password) {
-        // Currently, we are not using name field, but we will use it in the next video.
-        // So, let's create a new user in the Firebase
-        // We will use the Firebase Auth class to create a new user
-        // We will use the createUserWithEmailAndPassword() method to create a new user
-        // This method takes two parameters, email and password
-
-        // Let's test our signup activity
-        // We need to enable the Email/Password sign-in method in the Firebase console
-        // Our code works as expected
-        // Need to show a progress dialog while creating a new user
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Creating user...");
@@ -72,10 +61,10 @@ public class SignUpActivity extends AppCompatActivity {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        // user account created successfully
+
                         saveName(name, email);
                     } else {
-                        // account creation failed
+
                         dialog.dismiss();
                         Toast.makeText(this, "Account creation failed", Toast.LENGTH_SHORT).show();
                     }
