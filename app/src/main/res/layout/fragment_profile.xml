@@ -86,19 +86,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_email" />
 
     <ImageView
-        android:id="@+id/img_edit_profile"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="-8dp"
+        android:id="@+id/edit_profile_details"
+        android:layout_width="32dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
         android:elevation="4dp"
         android:padding="4dp"
+        android:onClick="changeDetails"
         android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/img_profile"
-        app:layout_constraintEnd_toEndOf="@+id/img_profile"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/img_profile"
-        app:layout_constraintTop_toTopOf="@+id/img_profile"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toEndOf="@+id/tv_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/img_cover"
         app:tint="@color/black" />
 
 
