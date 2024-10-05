@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogin.setOnClickListener(view -> login());
         binding.tvGuest.setOnClickListener(view -> startActivity(new Intent(this, MainActivity.class)));
         binding.tvSignup.setOnClickListener(view -> startActivity(new Intent(this, SignUpActivity.class)));
+        binding.forgotpassword.setOnClickListener(view -> startActivity(new Intent(this, ForgotPasswordActivity.class)));
         binding.btnGoogleSignIn.setOnClickListener(view -> googleSignIn());
 
         FacebookSignInButton.setOnClickListener(new View.OnClickListener() {
