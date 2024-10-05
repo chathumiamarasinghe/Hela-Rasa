@@ -5,6 +5,8 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="or">Or</string>
+    <string name="default_web_client_id">1525126469-psprs9s2hpamg29t0887imtan14t9epg.apps.googleusercontent.com.apps.googleusercontent.com</string>
+
     <string name="signup">SignUp</string>
     <string name="if_you_don_t_have_an_account_click_here">If you don\'t have an account, click here</string>
     <string name="sign_up">Sign Up</string>
@@ -30,14 +32,13 @@
     <string name="view_more_apps">View More Apps developed by us</string>
     <string name="send_feedback">Share your feedback to improve our app</string>
     <string name="privacy_policy">Visit our Privacy Policy</string>
-    <string name="developer_name">chathumi</string>
+    <string name="developer_name">modachathumi</string>
     <string name="developer_id">chathumiamarasinghe</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="satisfy_your_ncravings_with_just_a_tap">Satisfy your\ncravings with just a tap</string>
     <string name="favorites">Favorites</string>
     <string name="login_as_guest">Login as Guest</string>
-    <string name="default_web_client_id">1525126469-psprs9s2hpamg29t0887imtan14t9epg.apps.googleusercontent.com</string>
 
     <string name="facebook_app_id">566807232590236</string>
     <string name="fb_login_protocol_scheme">fb1234</string>

@@ -4,11 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+<<<<<<< Updated upstream
+=======
+import android.widget.Button;
+import android.widget.TextView;
+>>>>>>> Stashed changes
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.common.api.ApiException;
 
+<<<<<<< Updated upstream
 import com.example.lastlastrecipe.Facebook;
 import com.example.lastlastrecipe.databinding.ActivityLoginBinding;
 import com.facebook.CallbackManager;
@@ -17,11 +26,19 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+=======
+
+import com.bumptech.glide.Glide;
+>>>>>>> Stashed changes
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+<<<<<<< Updated upstream
 import com.google.android.gms.common.api.ApiException;
+=======
+import com.google.android.gms.common.SignInButton;
+>>>>>>> Stashed changes
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -35,20 +52,56 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
+<<<<<<< Updated upstream
 
     private ActivityLoginBinding binding;
     private FirebaseAuth auth;
     private GoogleSignInClient googleSignInClient;
     LoginButton FacebookSignInButton;
     private CallbackManager callbackManager;
+=======
+    private FirebaseAuth auth;
+    private GoogleSignInClient googleSignInClient;
+    private SignInButton googleSignInButton;
+
+    private TextView name, mail;
+
+    private final ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    Task<GoogleSignInAccount> accountTask = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                    try {
+                        GoogleSignInAccount signInAccount = accountTask.getResult(ApiException.class);
+                        AuthCredential authCredential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
+                        auth.signInWithCredential(authCredential).addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = auth.getCurrentUser();
+                                Glide.with(LoginActivity.this)
+                                        .load(user.getPhotoUrl());
+
+                                name.setText(user.getDisplayName());
+                                mail.setText(user.getEmail());
+                                Toast.makeText(LoginActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Sign In Failed: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } catch (ApiException e) {
+                        Toast.makeText(LoginActivity.this, "Sign in failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+    );
+>>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_login);
 
-        // Initialize Firebase
+
+
         FirebaseApp.initializeApp(this);
         auth = FirebaseAuth.getInstance();
 
@@ -83,11 +136,18 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // Configure Google Sign-In
+<<<<<<< Updated upstream
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))  // Ensure correct Web Client ID
+=======
+        GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+>>>>>>> Stashed changes
                 .requestEmail()
                 .build();
+        googleSignInClient = GoogleSignIn.getClient(this, options);
 
+<<<<<<< Updated upstream
         googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         // Set button listeners
@@ -106,12 +166,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+=======
+        googleSignInButton.setOnClickListener(view -> {
+            Intent intent = googleSignInClient.getSignInIntent();
+            activityResultLauncher.launch(intent);
+        });
+>>>>>>> Stashed changes
 
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         }
     }
+<<<<<<< Updated upstream
 
     private void login() {
         String email = Objects.requireNonNull(binding.etEmail.getText()).toString().trim();
@@ -175,4 +242,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+=======
+>>>>>>> Stashed changes
 }
