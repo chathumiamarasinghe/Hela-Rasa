@@ -10,5 +10,12 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.LastLastRecipe" parent="Base.Theme.RecipesApp" />
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar" >
+
+        <!--non selected star colour-->
+        <item name="colorControlNormal">#4D000000</item>
+
+        <!-- selected star colour-->
+        <item name="colorControlActivated">@color/dialog_color_1</item>
+    </style>
 </resources>
