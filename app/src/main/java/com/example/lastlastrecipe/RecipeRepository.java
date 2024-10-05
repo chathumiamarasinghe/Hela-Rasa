@@ -8,12 +8,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-/**
- * Welcome to HashMac
- * Here we will write our Repository Class
- * We will write code to insert, delete and get all data from database
- */
-
 public class RecipeRepository {
     private RecipeDao recipeDao;
 
@@ -25,7 +19,7 @@ public class RecipeRepository {
     public long insert(FavouriteRecipe recipe) {
         Future<Long> future = RecipeDatabase.databaseWriteExecutor.submit(() -> recipeDao.insert(recipe));
         try {
-            return future.get(); // wait for the result
+            return future.get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
@@ -41,7 +35,7 @@ public class RecipeRepository {
     public boolean isFavourite(String favouriteRecipe) {
         Future<Boolean> future = RecipeDatabase.databaseWriteExecutor.submit(() -> recipeDao.getFavourite(favouriteRecipe) != null);
         try {
-            return future.get(); // wait for the result
+            return future.get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
@@ -52,7 +46,7 @@ public class RecipeRepository {
     public List<FavouriteRecipe> getAllFavourites() {
         Future<List<FavouriteRecipe>> future = RecipeDatabase.databaseWriteExecutor.submit(() -> recipeDao.getAllFavourites());
         try {
-            return future.get(); // wait for the result
+            return future.get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();

@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadRecipes() {
-        // We will load recipes from our database
+
         binding.rvPopulars.setAdapter(new HorizontalRecipeAdapter());
         binding.rvFavouriteMeal.setAdapter(new HorizontalRecipeAdapter());
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Recipes");

@@ -98,9 +98,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         }
     }
 
-    // Delete this method not working
-    // lets try to fix it
-    // Solved. Now it's working
+
     private void favouriteRecipe(Recipe recipe) {
         RecipeRepository repository = new RecipeRepository(getApplication());
         boolean isFavourite = repository.isFavourite(recipe.getId());
@@ -139,15 +137,3 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 }
 
-/**
- * Hey, thank you for watching this video and staying with me till the end
- * Our App is almost complete and this series is also about to end
- * Your feedback is very important for me, so please comment your feedback
- * I will make another video on how to validate app and fix glitches soon
- * Many times we face issues like app crashes, app not working, app not responding
- * Sometimes these issues mistakes and some are due to my attention
- * I want to show you how to fix these issues
- * So please comment your feedback and let me know if you want to see that video
- * Thank you for watching this video and staying with me till the end
- * Happy Coding
- */

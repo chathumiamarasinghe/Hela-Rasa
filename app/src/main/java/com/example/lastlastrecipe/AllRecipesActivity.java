@@ -47,7 +47,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     }
 
     private void loadByRecipes() {
-        // Search Recipes by Name
+
         String query = getIntent().getStringExtra("query");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -72,7 +72,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     }
 
     private void loadAllRecipes() {
-        // Load All Recipes
+
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -96,7 +96,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     }
 
     private void filterByCategory() {
-        // Filter Recipes by Category
+
         String category = getIntent().getStringExtra("category");
         reference.orderByChild("category").equalTo(category).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
