@@ -165,7 +165,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                             File cachePath = new File(getCacheDir(), "images");
                             cachePath.mkdirs();
                             File file = new File(cachePath, "image.png");
-                            FileOutputStream stream = new FileOutputStream(file); 
+                            FileOutputStream stream = new FileOutputStream(file);
                             resource.compress(Bitmap.CompressFormat.PNG, 100, stream);
                             stream.close();
 
