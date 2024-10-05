@@ -8,7 +8,6 @@
         <item name="colorSecondary">@color/brown</item>
         <item name="android:statusBarColor">@color/primaryDark</item>
         <item name="colorAccent">@color/light_brown</item>
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="Theme.LastLastRecipe" parent="Base.Theme.RecipesApp" />

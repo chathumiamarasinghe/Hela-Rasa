@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/take_your_taste_buds_non_a_flavor_journey_with_us"
+        android:text="Explore easy, medium, and hard recipes, tailored to your prep time"
         android:textColor="@color/brown"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
