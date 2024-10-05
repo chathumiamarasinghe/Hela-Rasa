@@ -56,7 +56,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Pass the recipe ID to the dialog
                 Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");
-                com.example.lastlastrecipe.room.RateUsDialog rateUsDialog = new com.example.lastlastrecipe.room.RateUsDialog(RecipeDetailsActivity.this, recipe.getId());
+                RateUsDialog rateUsDialog = new RateUsDialog(RecipeDetailsActivity.this, recipe.getId());
                 rateUsDialog.show();
             }
         });

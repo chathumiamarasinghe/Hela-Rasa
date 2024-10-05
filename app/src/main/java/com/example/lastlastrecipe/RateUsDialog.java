@@ -1,4 +1,4 @@
-package com.example.lastlastrecipe.room;
+package com.example.lastlastrecipe;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,13 +8,18 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.lastlastrecipe.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class RateUsDialog extends Dialog {
 
@@ -47,6 +52,7 @@ public class RateUsDialog extends Dialog {
         laterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dismiss();
                  // Just dismiss the dialog
             }
         });
@@ -85,15 +91,26 @@ public class RateUsDialog extends Dialog {
     }
 
     private void submitRating(float rating) {
-        // Here, store the rating in Firebase
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RecipeRatings").child(recipeId);
-        reference.setValue(rating) // Set the rating for this recipe ID
+        // Assuming you have Firebase Auth set up and can get the current user's ID
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // Here, store the rating in Firebase under the user ID
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RecipeRatings")
+                .child(recipeId) // Recipe ID
+                .child(userId); // User ID
+
+        reference.setValue(rating) // Set the rating for this user ID
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        // Optionally show a message indicating the rating was submitted successfully
+
                     } else {
-                        // Handle the error, maybe show a message to the user
+
                     }
                 });
     }
+
+    
+
+
+
 }
