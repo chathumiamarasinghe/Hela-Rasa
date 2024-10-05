@@ -20,7 +20,6 @@ public class SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySettingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.linearLayoutShare.setOnClickListener(view -> shareApp());
         binding.linearLayoutFeedback.setOnClickListener(view -> sendFeedback());
         binding.btnSignout.setOnClickListener(view -> signOut());
     }
@@ -51,11 +50,4 @@ public class SettingActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(intent, "Send Feedback"));
     }
 
-    private void shareApp() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Wallcraft");
-        intent.putExtra(Intent.EXTRA_TEXT, "Get " + getString(R.string.app_name) + " to get the best wallpapers for your phone: https://play.google.com/store/apps/details?id=" + getPackageName());
-        startActivity(Intent.createChooser(intent, "Share App"));
-    }
 }
