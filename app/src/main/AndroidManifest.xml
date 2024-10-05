@@ -6,6 +6,10 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/muthuka
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -19,6 +23,7 @@
         android:roundIcon="@drawable/img_1"
         android:supportsRtl="true"
         android:theme="@style/Theme.LastLastRecipe"
+<<<<<<< HEAD
         tools:targetApi="31" >
 
         <meta-data
@@ -29,13 +34,27 @@
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
+=======
+        tools:targetApi="31">
+        <activity
+            android:name=".RecipeNew"
+            android:exported="true" >
+
+
+        </activity>
+>>>>>>> origin/muthuka
         <activity
             android:name=".SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/muthuka
         </activity>
         <activity
             android:name=".MainActivity"
@@ -91,4 +110,9 @@
 
 
     </application>
+<<<<<<< HEAD
 </manifest>
+=======
+
+</manifest>
+>>>>>>> origin/muthuka

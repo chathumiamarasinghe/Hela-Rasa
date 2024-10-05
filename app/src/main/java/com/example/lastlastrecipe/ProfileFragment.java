@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.bumptech.glide.Glide;
+<<<<<<< HEAD:app/src/main/java/com/example/lastlastrecipe/ProfileFragment.java
+=======
+import com.example.lastlastrecipe.edit_profile;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
+>>>>>>> origin/muthuka:app/src/main/java/com/example/lastlastrecipe/fragment/ProfileFragment.java
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,6 +54,7 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private User user;
+    private TextView tvUserName;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,7 +83,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void init() {
-        binding.imgEditProfile.setOnClickListener(v -> {
+        binding.imgProfile.setOnClickListener(v -> {
 
             PickImageDialog.build(new PickSetup()).show(requireActivity()).setOnPickResult(r -> {
                 Log.e("ProfileFragment", "onPickResult: " + r.getUri());
@@ -212,6 +221,32 @@ public class ProfileFragment extends Fragment {
 
 
     }
+    public void changeDetails(View view){
+        String userName = binding.tvUserName.getText().toString();
+
+        // Create an intent to navigate to EditProfileActivity
+        Intent intent = new Intent(getActivity(), edit_profile.class);
+
+        // Pass the user name as an extra
+        intent.putExtra("USER_NAME", userName);
+
+        // Start EditProfileActivity
+        startActivity(intent);
+    }
+
+    /*public void changeDetails(View view){
+        tvUserName = view.findViewById(R.id.tv_user_name);
+        String userName = tvUserName.getText().toString();
+
+        // Create an intent to navigate to EditProfileActivity
+        Intent intent = new Intent(getActivity(), edit_profile.class);
+
+        // Pass the user name as an extra
+        intent.putExtra("USER_NAME", userName);
+
+        // Start EditProfileActivity
+        startActivity(intent);
+    }*/
 
     @Override
     public void onDestroyView() {
