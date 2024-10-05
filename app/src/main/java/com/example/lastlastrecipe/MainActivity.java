@@ -16,6 +16,7 @@ import com.example.lastlastrecipe.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ActivityMainBinding binding;
@@ -32,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AddRecipeActivity.class));
         });
     }
+    public void changeDetails(View view) {
+        Intent intent = new Intent(this, edit_profile.class);
+        startActivity(intent);
+    }
+
 }

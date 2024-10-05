@@ -8,12 +8,18 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -22,6 +28,9 @@ public class edit_profile extends AppCompatActivity {
     private EditText editName, editEmail, editDescription, editPassword, editConfirmPassword;
     private Button btnUpdate;
     private EditText editUserName;
+    private TextView currentNameTextView;
+    private ImageView profileImageView;
+
     // Firebase references
     private FirebaseAuth mAuth;
     private DatabaseReference userRef;
@@ -32,23 +41,16 @@ public class edit_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        // Initialize the EditText
-        editUserName = findViewById(R.id.editTextText11);
-
-        // Get the user name passed from the ProfileFragment
-        String userName = getIntent().getStringExtra("USER_NAME");
-
-        // Set the user name in the EditText
-        if (userName != null) {
-            editUserName.setText(userName);
-        }
+        // Initialize the EditText and other views
+        currentNameTextView = findViewById(R.id.textView4); // For displaying the current name
+        profileImageView = findViewById(R.id.imageView3);   // For displaying the profile image
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         userRef = FirebaseDatabase.getInstance().getReference("Users");
 
-        // Initialize UI elements
+        // Initialize other UI elements
         editName = findViewById(R.id.editTextText11);
         editEmail = findViewById(R.id.editTextText2);
         editDescription = findViewById(R.id.Description);
@@ -56,11 +58,46 @@ public class edit_profile extends AppCompatActivity {
         editConfirmPassword = findViewById(R.id.editTextNumberPassword2);
         btnUpdate = findViewById(R.id.button2);
 
+        // Load and display current profile info
+        loadUserProfile();
+
         // Set button click listener to update profile
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateProfile();
+            }
+        });
+    }
+
+    // Method to load user profile information from Firebase
+    private void loadUserProfile() {
+        userRef.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // Assuming the user has fields: "name", "email", "description", and "imageUrl"
+                    String currentName = dataSnapshot.child("name").getValue(String.class);
+                    String profileImageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+
+                    // Display current name in TextView
+                    currentNameTextView.setText(currentName);
+
+                    // Load profile image into ImageView using Glide
+                    if (profileImageUrl != null && !profileImageUrl.isEmpty()) {
+                        Glide.with(edit_profile.this)
+                                .load(profileImageUrl)
+                                .placeholder(R.drawable.ic_launcher_foreground) // Replace with a placeholder image
+                                .into(profileImageView);
+                    } else {
+                        profileImageView.setImageResource(R.drawable.ic_launcher_foreground); // Placeholder image if no URL
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(edit_profile.this, "Failed to load profile", Toast.LENGTH_SHORT).show();
             }
         });
     }

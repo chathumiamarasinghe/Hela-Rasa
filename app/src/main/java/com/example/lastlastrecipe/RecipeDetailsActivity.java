@@ -113,7 +113,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         String videoUrl = recipe.getVideoUrl();
 
         if (videoUrl != null && !videoUrl.isEmpty()) {
-            StorageReference videoRef = storageReference.child("video/" + videoUrl);
+            StorageReference videoRef = storageReference.child("video" + videoUrl);
             videoRef.getDownloadUrl().addOnSuccessListener(uri -> {
                 // Set the video URI to the VideoView
                 recipeVideo.setVideoURI(uri);
