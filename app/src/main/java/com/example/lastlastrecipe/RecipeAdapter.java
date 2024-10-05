@@ -64,4 +64,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeHold
             });
         }
     }
+
+
 }

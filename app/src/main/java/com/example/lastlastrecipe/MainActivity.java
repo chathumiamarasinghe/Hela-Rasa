@@ -12,7 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.lastlastrecipe.room.RateUsDialog;
+import com.example.lastlastrecipe.RateUsDialog;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.example.lastlastrecipe.databinding.ActivityMainBinding;

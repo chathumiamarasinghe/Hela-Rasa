@@ -33,12 +33,14 @@ import com.google.firebase.database.collection.BuildConfig;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.BreakIterator;
 
 
 public class RecipeDetailsActivity extends AppCompatActivity {
     ActivityRecipeDetailsBinding binding;
 
     ImageView Rateresipe;
+    TextView tv_average_rating;
 
 
     @Override
@@ -48,6 +50,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         init();
         Rateresipe = findViewById(R.id.RateResipe);
+        tv_average_rating = findViewById(R.id.tv_average_rating);
 
 
 
@@ -61,9 +64,44 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             }
         });
 
+        Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");
+        calculateAverageRating(recipe.getId());
 
 
 
+
+    }
+
+    private void calculateAverageRating(String recipeId) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RecipeRatings").child(recipeId);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int count = 0;
+                float total = 0;
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Float rating = snapshot.getValue(Float.class);
+                    if (rating != null) { // Check if rating is not null
+                        total += rating;
+                        count++;
+                    }
+                }
+
+
+                if (count > 0) {
+                    float average = total / count;
+                    tv_average_rating.setText(String.format("Average Rating: %.1f", average)); // Update the TextView with the average rating
+                } else {
+                    tv_average_rating.setText("Average Rating: 0.0"); // No ratings yet
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+            }
+        });
     }
 
 

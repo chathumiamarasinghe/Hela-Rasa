@@ -123,6 +123,22 @@
         app:srcCompat="@drawable/ic_share"
         app:tint="@color/brown"/>
 
+
+    <TextView
+        android:id="@+id/tv_average_rating"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center"
+        android:text="Average Rating: 0.0"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
     <ImageView
         android:id="@+id/RateResipe"
         android:layout_width="57dp"
