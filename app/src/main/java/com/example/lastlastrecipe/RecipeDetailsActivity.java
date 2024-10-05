@@ -23,6 +23,7 @@ import com.example.lastlastrecipe.databinding.ActivityRecipeDetailsBinding;
 
 public class RecipeDetailsActivity extends AppCompatActivity {
     ActivityRecipeDetailsBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         binding.tcCategory.setText(recipe.getCategory());
         binding.tvDescription.setText(recipe.getDescription());
         binding.tvCalories.setText(String.format("%s Calories", recipe.getCalories()));
+        binding.imgShare.setOnClickListener(view -> shareRecipe(recipe));
+
         Glide
                 .with(RecipeDetailsActivity.this)
                 .load(recipe.getImage())
@@ -134,6 +137,15 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 Log.e("TAG", "onCancelled: ", error.toException());
             }
         });
+
+    }
+
+    private void shareRecipe(Recipe recipe) {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TITLE, recipe.getName());
+        shareIntent.putExtra(Intent.EXTRA_TEXT, recipe.getDescription());
+        startActivity(Intent.createChooser(shareIntent, "Share Recipe Using"));
     }
 }
 
