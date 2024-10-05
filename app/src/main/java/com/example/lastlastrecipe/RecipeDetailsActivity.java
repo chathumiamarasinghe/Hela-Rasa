@@ -1,17 +1,24 @@
 package com.example.lastlastrecipe;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,6 +26,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.example.lastlastrecipe.databinding.ActivityRecipeDetailsBinding;
+import com.google.firebase.database.collection.BuildConfig;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 public class RecipeDetailsActivity extends AppCompatActivity {
@@ -141,11 +153,45 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     private void shareRecipe(Recipe recipe) {
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TITLE, recipe.getName());
-        shareIntent.putExtra(Intent.EXTRA_TEXT, recipe.getDescription());
-        startActivity(Intent.createChooser(shareIntent, "Share Recipe Using"));
+
+        Glide.with(this)
+                .asBitmap()
+                .load(recipe.getImage()) // Load the image URL
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        try {
+
+                            File cachePath = new File(getCacheDir(), "images");
+                            cachePath.mkdirs();
+                            File file = new File(cachePath, "image.png");
+                            FileOutputStream stream = new FileOutputStream(file); 
+                            resource.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                            stream.close();
+
+
+                            Uri imageUri = FileProvider.getUriForFile(
+                                    RecipeDetailsActivity.this,
+                                    getPackageName() + ".provider",
+                                    file);
+
+
+                            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                            shareIntent.setType("image/*");
+                            shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                            shareIntent.putExtra(Intent.EXTRA_TEXT, recipe.getName() + "\n\n" + recipe.getDescription()); // Share the text
+                            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                            startActivity(Intent.createChooser(shareIntent, "Share Recipe Using"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
     }
 }
 
