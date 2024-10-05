@@ -14,6 +14,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -36,13 +38,34 @@ import java.io.IOException;
 public class RecipeDetailsActivity extends AppCompatActivity {
     ActivityRecipeDetailsBinding binding;
 
+    ImageView Rateresipe;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRecipeDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         init();
+        Rateresipe = findViewById(R.id.RateResipe);
+
+
+
+        Rateresipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Pass the recipe ID to the dialog
+                Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");
+                com.example.lastlastrecipe.room.RateUsDialog rateUsDialog = new com.example.lastlastrecipe.room.RateUsDialog(RecipeDetailsActivity.this, recipe.getId());
+                rateUsDialog.show();
+            }
+        });
+
+
+
+
     }
+
 
     private void init() {
         Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");

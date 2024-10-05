@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
        // show rating dialog
-        RateUsDialog rateUsDialog = new RateUsDialog(MainActivity.this);
-        rateUsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
-        rateUsDialog.setCancelable(false);
-        rateUsDialog.show();
+
+
     }
 }
