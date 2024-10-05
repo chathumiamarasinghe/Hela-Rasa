@@ -7,10 +7,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
         android:text="@string/satisfy_your_cravings_nwith_just_a_tap_recipe_app"
         android:textColor="@color/brown"
         android:textSize="24sp"
