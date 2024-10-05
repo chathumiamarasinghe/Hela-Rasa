@@ -11,6 +11,7 @@ public class Recipe implements Serializable {
     private String calories;
     private String time;
     private String authorId;
+    private String videoUrl;
 
     public Recipe() {}
 
@@ -87,4 +88,14 @@ public class Recipe implements Serializable {
     public void setAuthorId(String authorId) {
         this.authorId = authorId;
     }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+
 }

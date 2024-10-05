@@ -1,0 +1,149 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- Top Image and Video Play Button -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Video Player -->
+        <VideoView
+            android:id="@+id/recipeVideo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true" />
+
+        <!-- Play Button on Video -->
+        <ImageView
+            android:id="@+id/playButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_play_circle"
+            android:contentDescription="Play Video"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_gravity="center" />
+    </RelativeLayout>
+
+    <!-- Recipe Title -->
+    <TextView
+        android:id="@+id/recipeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: Polos Curry"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="8dp" />
+
+    <!-- Recipe Description -->
+    <TextView
+        android:id="@+id/recipeDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spicy, tangy polos curry bursting with rich Sri Lankan flavours."
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp" />
+
+    <!-- Tab Layout for Ingredients and Procedure -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <!-- Ingredients Button -->
+        <Button
+            android:id="@+id/btnIngredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Ingredients"
+            android:textColor="@android:color/white" />
+
+        <!-- Procedure Button -->
+        <Button
+            android:id="@+id/btnProcedure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Procedure"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Ingredients Layout -->
+    <LinearLayout
+        android:id="@+id/ingredientsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:visibility="visible"> <!-- Initially visible -->
+
+        <!-- Add ingredients here -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingredients List"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <!-- Example ingredient -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="311dp"
+            android:text="1. 1kg Polos (Young Jackfruit)"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <!-- Add more ingredients as needed -->
+    </LinearLayout>
+
+    <!-- Procedure Layout -->
+    <LinearLayout
+        android:id="@+id/procedureLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"> <!-- Initially hidden -->
+
+        <!-- Add procedure steps here -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Procedure Steps"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <!-- Step 1 -->
+        <TextView
+            android:id="@+id/step1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 1"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/step1Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cut the polos into small cubes and boil until tender."
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Step 2, Step 3, and so on -->
+    </LinearLayout>
+</LinearLayout>
