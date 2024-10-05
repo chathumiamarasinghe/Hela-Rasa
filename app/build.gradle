@@ -39,40 +39,35 @@ dependencies {
     implementation libs.material
     implementation libs.activity
     implementation libs.constraintlayout
-    implementation libs.firebase.auth
 
+    // Firebase BOM
     implementation platform('com.google.firebase:firebase-bom:32.1.1')
+    implementation 'com.google.firebase:firebase-auth' // Removed specific version
     implementation 'com.google.firebase:firebase-appcheck:16.0.0'
     implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-storage'
 
+    // Other dependencies
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
     implementation 'com.github.jrvansuita:PickImage:+' // 2.4.0
     implementation 'com.github.jrvansuita:pickimage:3.0.2'
-<<<<<<< Updated upstream
-    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
 
+    // Facebook SDK (use a specific version)
+    implementation 'com.facebook.android:facebook-android-sdk:12.3.0' // Replace with the latest stable version
 
-    implementation 'com.google.android.gms:play-services-auth:20.2.0'
-    implementation 'com.google.firebase:firebase-auth:22.1.1'
+    // Google Play Services Auth
+    implementation 'com.google.android.gms:play-services-auth:20.4.0' // Use the latest version
 
-=======
-    implementation 'com.google.android.gms:play-services-auth:20.6.0'
->>>>>>> Stashed changes
-
-
-    implementation 'com.google.android.gms:play-services-auth:20.4.0'
-
-
+    // Room
     implementation 'androidx.room:room-runtime:2.5.1'
     implementation libs.navigation.runtime
     implementation libs.navigation.ui
     implementation libs.navigation.fragment
     annotationProcessor 'androidx.room:room-compiler:2.5.1'
 
+    // Testing Libraries
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
