@@ -40,11 +40,14 @@ Set Up Firebase:
 Go to the Firebase Console.
 Create a new project and add your Android app to it.
 Download the google-services.json file and place it in the app/ directory of your project.
-Run the App:
+
+## Run the App:
 
 Connect your Android device or use an emulator.
 Click on the "Run" button in Android Studio.
-Usage
+
+## Usage
+
 Open the app to view the main recipe list.
 Use the search bar to find specific recipes.
 Tap on a recipe to view details, including ingredients and instructions.
