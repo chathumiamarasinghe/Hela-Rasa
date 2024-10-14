@@ -204,7 +204,7 @@ public class ProfileFragment extends Fragment {
                 Log.e("ProfileFragment", "onCancelled: " + error.getMessage());
             }
 
-            
+
         });
         User user = new User();
         user.setName("chathumi");
