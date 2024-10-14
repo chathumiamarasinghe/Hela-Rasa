@@ -203,6 +203,7 @@ public class ProfileFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("ProfileFragment", "onCancelled: " + error.getMessage());
             }
+
             
         });
         User user = new User();
