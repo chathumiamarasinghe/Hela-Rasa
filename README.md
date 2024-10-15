@@ -11,6 +11,8 @@ Hela Rasa is a mobile application designed for food enthusiasts, particularly th
 - **Recipe Details**: View detailed instructions, ingredients, and cooking time for each recipe.
 - **Image Sharing**: Share recipes along with images via social media or messaging apps.
 - **Favorites**: Mark recipes as favorites for easy access later.
+- **Add Recipe**: Users can add recipies with recipe name,quantity of calories and cooking time with recipe image as well.
+- **Update/delete Recipe**: Users can also update & delete their recipies as well.
 - **Firebase Integration**: Store and retrieve recipe data using Firebase Firestore and Firebase Storage.
 
 ## Technologies Used
@@ -64,5 +66,5 @@ Open a pull request.
 ## Contact
 For any inquiries or suggestions, feel free to reach out:
 
-Your Name: chathumiamarasinghe@gmail.com
+Name: chathumiamarasinghe@gmail.com
 GitHub: chathumiamarasinghe
